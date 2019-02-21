@@ -210,7 +210,7 @@ public class ElasticDragDismissFrameLayout extends FrameLayout {
             if (shouldScale) setPivotY(0f);
         }
         // how far have we dragged relative to the distance to perform a dismiss
-        // (0–1 where 1 = dismiss distance). Decreasing logarithmically as we approach the limit
+        // Decreasing logarithmically as we approach the limit
         float dragFraction = (float) Math.log10(1 + (Math.abs(totalDrag) / dragDismissDistance));
 
         // calculate the desired translation given the drag fraction

@@ -36,11 +36,11 @@ task generateSourcesJar(type: Jar) {
 }
 
 task generateJavadocs(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath()
-            .join(File.pathSeparator))
+    source = android.sourceSets.main.java.srcDirs //source指定了源码位置
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
 }
 
+//这里dependsOn意为仅当generateJavadocs完成后才开始本task，和ant脚本也是对应的。
 task generateJavadocsJar(type: Jar, dependsOn: generateJavadocs) {
     from generateJavadocs.destinationDir
     classifier 'javadoc'
@@ -59,17 +59,19 @@ bintray {
     key = properties.getProperty("bintray.apikey")
 
     pkg {
-        repo = 'maven'
+        repo = 'Maven'
         name = 'com.chrissen.elasticdragdismisslayout'
 
         version {
-            name = '0.0.1'
+            name = '0.0.1-release'
             desc = "Elastic Drag Dismiss Layout"
             released = new Date()
             vcsTag = '0.0.1'
         }
 
         licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/chrissen0814/ElasticDragDismissLayout.git'
+        websiteUrl = 'https://github.com/chrissen0814/ElasticDragDismissLayout'
     }
 
     configurations = ['archives']

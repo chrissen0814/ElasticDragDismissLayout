@@ -7,11 +7,8 @@ import android.support.annotation.IntRange;
 
 /**
  * Function:
- * <br/>
  * Describe:
- * <br/>
  * Author: chris on 2019/2/21.
- * <br/>
  * Email: chrissen0814@gmail.com
  */
 
