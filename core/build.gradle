@@ -1,7 +1,9 @@
 apply plugin: 'com.android.library'
-// 根节点添加
+//启用Jitpack 插件
 apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'com.jfrog.bintray'
+
+//设置Jitpack发布的Group
+group='com.github.chrissen0814'
 
 android {
     compileSdkVersion 27
@@ -25,56 +27,6 @@ android {
         }
     }
 
-}
-
-group = 'com.chrissen.elasticdragdismisslayout' // 这里需要和真实包名对应，不能随便填写
-version = '0.0.1' // 指定版本号
-
-task generateSourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier 'sources'
-}
-
-task generateJavadocs(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs //source指定了源码位置
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
-
-//这里dependsOn意为仅当generateJavadocs完成后才开始本task，和ant脚本也是对应的。
-task generateJavadocsJar(type: Jar, dependsOn: generateJavadocs) {
-    from generateJavadocs.destinationDir
-    classifier 'javadoc'
-}
-
-artifacts {
-    archives generateJavadocsJar
-    archives generateSourcesJar
-}
-
-Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
-
-bintray {
-    user = properties.getProperty("bintray.user")
-    key = properties.getProperty("bintray.apikey")
-
-    pkg {
-        repo = 'Maven'
-        name = 'com.chrissen.elasticdragdismisslayout'
-
-        version {
-            name = '0.0.1-release'
-            desc = "Elastic Drag Dismiss Layout"
-            released = new Date()
-            vcsTag = '0.0.1'
-        }
-
-        licenses = ['Apache-2.0']
-        vcsUrl = 'https://github.com/chrissen0814/ElasticDragDismissLayout.git'
-        websiteUrl = 'https://github.com/chrissen0814/ElasticDragDismissLayout'
-    }
-
-    configurations = ['archives']
 }
 
 dependencies {
