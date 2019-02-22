@@ -1,5 +1,5 @@
 # ElasticDragDismissLayout
-让布局支持上下滑动消失
+让布局支持上下滑动消失 
 
 # 截图
 ![](https://github.com/chrissen0814/ElasticDragDismissLayout/blob/master/screenshot/elastic.gif)
@@ -19,6 +19,7 @@
    ```
 
    module的build.gradle中添加：
+   [![](https://jitpack.io/v/chrissen0814/ElasticDragDismissLayout.svg)](https://jitpack.io/#chrissen0814/ElasticDragDismissLayout)
 
    ```java
    dependencies {
