@@ -76,5 +76,8 @@
 | dragDismissFraction | 滑动消失的比例       | 大于0时，会影响dragDismissDistance的设置                     |
 | dragElasticity      | drag回弹比例设置     | 影响回调效果                                                 |
 
+## 哪些软件在用？
+[麻雀笔记](https://www.coolapk.com/apk/204800)：整理你的碎片信息
+
 ## 鸣谢
 https://github.com/nickbutcher/plaid
